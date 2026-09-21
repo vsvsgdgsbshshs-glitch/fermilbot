@@ -798,3 +798,14 @@ bot.on('polling_error', (error) => {
 });
 
 console.log('✅ FermilBase бот запущен');
+
+const http = require('http');
+
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('FermilBase bot is running');
+}).listen(PORT, '0.0.0.0', () => {
+  console.log(`HTTP server started on port ${PORT}`);
+});
